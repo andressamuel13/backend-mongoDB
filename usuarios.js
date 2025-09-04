@@ -40,8 +40,13 @@ export const obtenerUsuarioPorId = async (req, res) => {
     const collection = db.collection('testcollection');
     const { id } = req.params;
 
+    const idNum = parseInt(id);
+    if (isNaN(idNum)) {
+      return res.status(400).json({ message: "ID inválido. Debe ser un número." });
+    }
+
     const result = await collection.findOne({
-        id: parseInt(id)
+        id: idNum
     });
     if (result) {
       res.status(200).json(result);
