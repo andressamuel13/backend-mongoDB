@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import router from './ruta.js';
+import router from './routes/ruta.routes.js';
 
 const app = express();
 const PORT = 3000;
